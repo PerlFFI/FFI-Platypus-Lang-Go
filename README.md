@@ -2,6 +2,16 @@
 
 Documentation and tools for using Platypus with Go
 
+# METHODS
+
+## native\_type\_map
+
+    my $hash = FFI::Platypus::Lang::Go->native_type_map;
+
+This returns a hash reference containing the native aliases for
+Go.  That is the keys are native Go types and the values are
+[FFI::Platypus](https://metacpan.org/pod/FFI::Platypus) types.
+
 # AUTHOR
 
 Graham Ollis <plicease@cpan.org>

@@ -10,7 +10,13 @@ my %modules;
 my $post_diag;
 
 $modules{$_} = $_ for qw(
+  Capture::Tiny
   ExtUtils::MakeMaker
+  FFI::Platypus
+  File::ShareDir::Dist
+  File::ShareDir::Dist::Install
+  File::chdir
+  Path::Tiny
   Test2::V0
 );
 
