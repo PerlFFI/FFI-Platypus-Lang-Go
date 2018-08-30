@@ -3,7 +3,7 @@ package FFI::Platypus::Lang::Go;
 use strict;
 use warnings;
 use 5.008001;
-use File::ShareDir::Dist qw( dist_config );
+use File::ShareDir::Dist 0.07 qw( dist_config );
 
 # ABSTRACT: Documentation and tools for using Platypus with Go
 # VERSION
