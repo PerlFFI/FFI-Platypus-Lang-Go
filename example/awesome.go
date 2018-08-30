@@ -8,10 +8,10 @@ package main
 import "C"
 
 import (
- "fmt"
- "math"
- "sort"
- "sync"
+	"fmt"
+	"math"
+	"sort"
+	"sync"
 )
 
 var count int
@@ -28,11 +28,11 @@ func Sort(vals []int) { sort.Ints(vals) }
 
 //export Log
 func Log(msg string) int {
-  mtx.Lock()
-  defer mtx.Unlock()
-  fmt.Println(msg)
-  count++
-  return count
+	mtx.Lock()
+	defer mtx.Unlock()
+	fmt.Println(msg)
+	count++
+	return count
 }
 
 func main() {}
