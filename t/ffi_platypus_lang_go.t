@@ -8,13 +8,13 @@ subtest 'basic' => sub {
   $ffi->lang('Go');
 
   my @types = qw(
-    bool
-    string
-    int  int8  int16  int32  int64
-    uint uint8 uint16 uint32 uint64 uintptr
-    byte
-    rune
-    float32 float64
+    gobool
+    gostring
+    goint  goint8  goint16  goint32  goint64
+    gouint gouint8 gouint16 gouint32 gouint64 gouintptr
+    gobyte
+    gorune
+    gofloat32 gofloat64
   );
 
   # support depends on C, libffi, etc

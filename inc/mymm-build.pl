@@ -29,18 +29,23 @@ my $dist = 'FFI-Platypus-Lang-Go';
   install_config_set $dist, go_arch    => $arch;
 }
 
-# TODO: string
-# uint* types are already understood by Platypus
+# TODO: gostring, goslice, gointerface
 
 my %types = qw(
-  int8       sint8
-  int16      sint16
-  int32      sint32
-  int64      sint64
-  byte       uint8
-  rune       sint32
-  float32    float
-  float64    double
+  goint8        sint8
+  goint16       sint16
+  goint32       sint32
+  goint64       sint64
+  gouint8       sint8
+  gouint16      sint16
+  gouint32      sint32
+  gouint64      sint64
+  gobyte        uint8
+  gorune        sint32
+  gofloat32     float
+  gofloat64     double
+  gomap         opaque
+  gochan        opaque
 );
 
 {
@@ -88,19 +93,19 @@ EOF
   my $ffi = FFI::Platypus->new;
   $ffi->lib('./simple.so');
 
-  $types{bool}    = 'uint' . ($ffi->function( SizeOfBool => [] => 'size_t' )->call * 8);
-  $types{int}     = 'sint' . ($ffi->function( SizeOfInt => [] => 'size_t' )->call * 8);
-  $types{uint}    = 'uint' . ($ffi->function( SizeOfUint => [] => 'size_t' )->call * 8);
-  $types{uintptr} = 'uint' . ($ffi->sizeof('size_t')*8);
+  $types{gobool}    = 'uint' . ($ffi->function( SizeOfBool => [] => 'size_t' )->call * 8);
+  $types{goint}     = 'sint' . ($ffi->function( SizeOfInt => [] => 'size_t' )->call * 8);
+  $types{gouint}    = 'uint' . ($ffi->function( SizeOfUint => [] => 'size_t' )->call * 8);
+  $types{gouintptr} = 'uint' . ($ffi->sizeof('size_t')*8);
 
   if(eval { $ffi->sizeof('complex_float'); 1 })
   {
-    $types{complex64} = 'complex_float';
+    $types{gocomplex64} = 'complex_float';
   }
 
   if(eval { $ffi->sizeof('complex_double'); 1 })
   {
-    $types{complex128} = 'complex_double';
+    $types{gocomplex128} = 'complex_double';
   }
 }
 
