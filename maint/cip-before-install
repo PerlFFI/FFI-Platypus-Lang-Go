@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -ex
+
+cip sudo bash -c '
+  set -ex; 
+  curl https://dl.google.com/go/go1.12.linux-amd64.tar.gz | tar -C /usr/local -zxvf -;
+  cd /usr/local/bin;
+  ln -s ../go/bin/* .'
