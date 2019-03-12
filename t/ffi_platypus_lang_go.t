@@ -9,7 +9,6 @@ subtest 'basic' => sub {
 
   my @types = qw(
     gobool
-    gostring
     goint  goint8  goint16  goint32  goint64
     gouint gouint8 gouint16 gouint32 gouint64 gouintptr
     gobyte
@@ -17,6 +16,7 @@ subtest 'basic' => sub {
     gofloat32 gofloat64
   );
 
+  # gostring
   # support depends on C, libffi, etc
   # complex64 complex128
 
