@@ -97,6 +97,7 @@ EOF
   $types{goint}     = 'sint' . ($ffi->function( SizeOfInt => [] => 'size_t' )->call * 8);
   $types{gouint}    = 'uint' . ($ffi->function( SizeOfUint => [] => 'size_t' )->call * 8);
   $types{gouintptr} = 'uint' . ($ffi->sizeof('size_t')*8);
+  $types{gostring}  = 'record(Go::String)';
 
   if(eval { $ffi->sizeof('complex_float'); 1 })
   {

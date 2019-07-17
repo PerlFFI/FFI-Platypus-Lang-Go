@@ -11,6 +11,7 @@ my $post_diag;
 
 $modules{$_} = $_ for qw(
   Capture::Tiny
+  Class::Method::Modifiers
   ExtUtils::MakeMaker
   FFI::Platypus
   File::ShareDir::Dist
