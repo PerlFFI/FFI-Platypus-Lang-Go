@@ -1,2 +1,4 @@
 /FFI-Platypus-Lang-Go-*
 /.build
+/example/*.so
+/example/*.h
