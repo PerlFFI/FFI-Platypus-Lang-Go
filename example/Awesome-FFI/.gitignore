@@ -1,0 +1,4 @@
+/ffi/_build
+/MYMETA.*
+/Makefile
+/fbx.json

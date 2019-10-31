@@ -13,6 +13,9 @@ $modules{$_} = $_ for qw(
   Capture::Tiny
   Class::Method::Modifiers
   ExtUtils::MakeMaker
+  FFI::Build::File::Base
+  FFI::Build::File::Library
+  FFI::Build::Platform
   FFI::Platypus
   File::ShareDir::Dist
   File::ShareDir::Dist::Install
