@@ -77,8 +77,11 @@ sub build_item
     my $lib_path = Path::Tiny->new($lib->path)->absolute;
     local $CWD = $gomod->parent;
     $platform->run('go', 'build', -o => "$lib_path", '-buildmode=c-shared');
+    die "command failed" if $?;
     die "no c-shared library" unless -f $lib_path;
     chmod 0755, $lib_path unless $^O eq 'MSWin32';
+    $platform->run('go', 'test' );
+    die "command failed" if $?;
   }
 
   $lib;
