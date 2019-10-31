@@ -1,0 +1,6 @@
+/ffi/_build
+/MYMETA.*
+/Makefile
+/fbx.json
+/blib/
+/pm_to_blib
