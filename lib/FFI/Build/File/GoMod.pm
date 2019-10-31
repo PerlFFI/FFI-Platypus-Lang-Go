@@ -73,6 +73,8 @@ sub build_item
     );
   }
 
+  return $lib if -f $lib->path && !$lib->needs_rebuild($self->_deps($gomod));
+
   {
     my $lib_path = Path::Tiny->new($lib->path)->absolute;
     local $CWD = $gomod->parent;
@@ -85,6 +87,12 @@ sub build_item
   }
 
   $lib;
+}
+
+sub _deps
+{
+  my($self, $gomod) = @_;
+  map { "$_" } grep { $_->basename =~ /^(.*\.go|go\.mod|go\.sum)$/ } $gomod->parent->children;
 }
 
 1;
