@@ -25,7 +25,7 @@ use File::chdir;
 File class for Go Modules.
 
 =cut
-  
+
 sub accept_suffix
 {
   (qr/\/go\.mod$/)

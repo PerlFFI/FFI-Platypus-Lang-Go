@@ -2,3 +2,4 @@
 /.build
 /example/*.so
 /example/*.h
+/blib/
