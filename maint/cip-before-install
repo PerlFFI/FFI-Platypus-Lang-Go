@@ -1,4 +1,7 @@
 #!/bin/bash
 
 set -ex
+
+cip exec bash -c 'mkdir $TMPDIR'
 cip pkg golang
+cip exec cpanm -v https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/FFI-Platypus-0.99_05.tar.gz
