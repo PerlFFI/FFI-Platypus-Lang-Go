@@ -82,8 +82,11 @@ sub build_item
     die "command failed" if $?;
     die "no c-shared library" unless -f $lib_path;
     chmod 0755, $lib_path unless $^O eq 'MSWin32';
-    $platform->run('go', 'test' );
-    die "command failed" if $?;
+    if($self->_test)
+    {
+      $platform->run('go', 'test' );
+      die "command failed" if $?;
+    }
   }
 
   $lib;
@@ -93,6 +96,12 @@ sub _deps
 {
   my($self, $gomod) = @_;
   map { "$_" } grep { $_->basename =~ /^(.*\.go|go\.mod|go\.sum)$/ } $gomod->parent->children;
+}
+
+sub _test
+{
+  my($self) = @_;
+  map { "$_" } grep { $_->basename =~ /_test\.go$/ } Path::Tiny->new('.')->children;
 }
 
 1;
