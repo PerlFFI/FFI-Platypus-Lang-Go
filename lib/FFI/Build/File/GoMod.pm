@@ -76,7 +76,8 @@ sub build_item
   return $lib if -f $lib->path && !$lib->needs_rebuild($self->_deps($gomod));
 
   {
-    my $lib_path = Path::Tiny->new($lib->path)->absolute;
+    my $lib_path = Path::Tiny->new($lib->path)->relative($gomod->parent);
+    print "+cd @{[ $gomod->parent ]}\n";
     local $CWD = $gomod->parent;
     $platform->run('go', 'build', -o => "$lib_path", '-buildmode=c-shared');
     die "command failed" if $?;
@@ -87,6 +88,7 @@ sub build_item
       $platform->run('go', 'test' );
       die "command failed" if $?;
     }
+    print "+cd -\n";
   }
 
   $lib;
