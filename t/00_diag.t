@@ -24,7 +24,13 @@ $modules{$_} = $_ for qw(
   Test2::V0
 );
 
-
+$post_diag = sub {
+  use Capture::Tiny qw( capture_merged );
+  diag capture_merged {
+    system 'go', 'version';
+    ();
+  };
+};
 
 my @modules = sort keys %modules;
 
