@@ -1,4 +1,4 @@
-# FFI::Platypus::Lang::Go [![Build Status](https://secure.travis-ci.org/Perl5-FFI/FFI-Platypus-Lang-Go.png)](http://travis-ci.org/Perl5-FFI/FFI-Platypus-Lang-Go)
+# FFI::Platypus::Lang::Go [![Build Status](https://travis-ci.org/Perl5-FFI/FFI-Platypus-Lang-Go.svg)](http://travis-ci.org/Perl5-FFI/FFI-Platypus-Lang-Go)
 
 Documentation and tools for using Platypus with Go
 
@@ -6,7 +6,9 @@ Documentation and tools for using Platypus with Go
 
 ## native\_type\_map
 
-    my $hash = FFI::Platypus::Lang::Go->native_type_map;
+```perl
+my $hash = FFI::Platypus::Lang::Go->native_type_map;
+```
 
 This returns a hash reference containing the native aliases for
 Go.  That is the keys are native Go types and the values are
