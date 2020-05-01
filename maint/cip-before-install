@@ -3,5 +3,8 @@
 set -ex
 
 cip exec bash -c 'mkdir $TMPDIR'
+cip sudo apt-get update
+cip sudo apt-get install libffi-dev
 cip pkg golang
-cip exec cpanm -n https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/FFI-Platypus-1.23_01.tar.gz
+cip sudo chown -R cip.cip /home/cip/dzil
+cip exec ./maint/cip-before-install-inside
