@@ -30,6 +30,10 @@ jobs:
     - env: CIP_TAG=5.10 CIP_ENV=TMPDIR=/home/cip/tmp
     - env: CIP_TAG=5.8  CIP_ENV=TMPDIR=/home/cip/tmp
 
+branches:
+  only:
+    - master
+
 cache:
   directories:
     - "$HOME/.cip"
