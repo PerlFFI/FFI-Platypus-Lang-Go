@@ -22,7 +22,10 @@ use File::chdir;
 
 =head1 DESCRIPTION
 
-File class for Go Modules.
+File class for Go Modules.  This works like the other
+L<FFI::Build> file types.  For a complete example,
+see the C<examples/Awesome-FFI> directory that comes
+with the L<FFI::Platypus::Lang::Go> distribution.
 
 =cut
 
