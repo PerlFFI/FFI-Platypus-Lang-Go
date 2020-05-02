@@ -1,5 +1,5 @@
 use Test2::V0 -no_srand => 1;
-use FFI::Platypus 1.23;
+use FFI::Platypus 1.24;
 use FFI::Platypus::Type::GoString;
 
 my $ffi = FFI::Platypus->new( api => 1 );

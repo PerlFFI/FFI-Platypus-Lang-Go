@@ -2,7 +2,7 @@ package FFI::Platypus::Type::GoString;
 
 use strict;
 use warnings;
-use FFI::Platypus 1.23;
+use FFI::Platypus 1.24;
 use FFI::Go::String;
 use Ref::Util qw( is_blessed_ref );
 
