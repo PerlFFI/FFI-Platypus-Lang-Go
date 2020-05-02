@@ -1,9 +1,9 @@
 use Test2::V0 -no_srand => 1;
-use Go::String;
+use FFI::Go::String;
 
 subtest 'basic' => sub {
 
-  my $str = Go::String->new("foo");
+  my $str = FFI::Go::String->new("foo");
   is(
     $str,
     object {
@@ -18,7 +18,7 @@ subtest 'basic' => sub {
 
 subtest 'with null' => sub {
 
-  my $str = Go::String->new("foo\0bar");
+  my $str = FFI::Go::String->new("foo\0bar");
   is(
     $str,
     object {
