@@ -2,9 +2,9 @@
 
 set -ex
 
-rm -rf example/GoHttpLib/ffi example/GoHttpLib/plicease-gohttplib-*
-mkdir -p example/GoHttpLib
-cd example/GoHttpLib
+rm -rf examples/GoHttpLib/ffi examples/GoHttpLib/plicease-gohttplib-*
+mkdir -p examples/GoHttpLib
+cd examples/GoHttpLib
 curl -L https://github.com/plicease/gohttplib/tarball/master | tar zxvf -
 mv plicease-gohttplib-* ffi
 cd ffi

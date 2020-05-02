@@ -5,9 +5,9 @@ use File::Glob qw( bsd_glob );
 
 subtest 'basic' => sub {
 
-  foreach my $t (bsd_glob('example/Awesome-FFI/t/*.t'))
+  foreach my $t (bsd_glob('examples/Awesome-FFI/t/*.t'))
   {
-    my @command = ($^X, '-Iexample/Awesome-FFI/lib', $t);
+    my @command = ($^X, '-Iexamples/Awesome-FFI/lib', $t);
     my($out, $ret) = capture_merged {
       print "+@command";
       system @command;
