@@ -1,4 +1,4 @@
-package Go::String;
+package FFI::Go::String;
 
 use strict;
 use warnings;
@@ -13,9 +13,9 @@ use Class::Method::Modifiers ();
 
 =head1 SYNOPSIS
 
- use Go::String;
+ use FFI::Go::String;
  
- my $gostring = Go::String->new("foo\0bar");
+ my $gostring = FFI::Go::String->new("foo\0bar");
  my $perl_string = $gostring->to_string; # comes back as "foo\0bar"
 
 =head1 DESCRIPTION
@@ -28,7 +28,7 @@ details).
 
 =head2 new
 
- my $gostring = Go::String->new($perl_string);
+ my $gostring = FFI::Go::String->new($perl_string);
 
 Creates a new Go string with a copy of the original Perl string.
 
