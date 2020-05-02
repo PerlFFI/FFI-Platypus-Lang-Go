@@ -8,6 +8,53 @@ use File::ShareDir::Dist 0.07 qw( dist_config );
 # ABSTRACT: Documentation and tools for using Platypus with Go
 # VERSION
 
+=head1 SYNOPSIS
+
+Go code:
+
+# EXAMPLE: examples/Awesome-FFI/ffi/main.go
+
+Perl code:
+
+# EXAMPLE: examples/Awesome-FFI/lib/Awesome/FFI.pm
+
+=head1 DESCRIPTION
+
+This distribution is the Go language plugin for Platypus.
+It provides the definition for native Go types, like
+C<goint> and C<gostring>.  It also provides a L<FFI::Build>
+interface for building Perl extensions written in Go.
+
+For a full working example based on the synopsis above,
+including support files like C<Makefile.PL> and tests,
+see the C<examples/Awesome-FFI> directory that came with
+this distribution.
+
+=head1 SEE ALSO
+
+=over 4
+
+=item L<FFI::Platypus>
+
+More about FFI and Platypus itself.
+
+=item L<FFI::Platypus::Type::GoString>
+
+Type plugin for the go string type.
+
+=item L<FFI::Go::String>
+
+Low level interface to the go string type.
+
+=item L<FFI::Build::File::GoMod>
+
+L<FFI::Build> class for handling Go modules.
+
+=back
+
+=cut
+
+
 my $config;
 
 sub _config
