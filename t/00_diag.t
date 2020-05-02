@@ -21,6 +21,7 @@ $modules{$_} = $_ for qw(
   File::ShareDir::Dist::Install
   File::chdir
   Path::Tiny
+  Ref::Util
   Test2::V0
 );
 

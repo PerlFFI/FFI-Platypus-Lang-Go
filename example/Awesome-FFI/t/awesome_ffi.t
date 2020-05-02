@@ -6,10 +6,8 @@ use FFI::Go::String;
 is( Add(1,2), 3 );
 is( Cosine(0), 1.0 );
 
-my $gostr = FFI::Go::String->new("Hello Perl!");
-
 is(
-  [capture { Log($gostr) }],
+  [capture { Log("Hello Perl!") }],
   ["Hello Perl!\n", '', 1]
 );
 

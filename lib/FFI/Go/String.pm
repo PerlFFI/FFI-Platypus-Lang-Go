@@ -2,7 +2,10 @@ package FFI::Go::String;
 
 use strict;
 use warnings;
-use overload '""' => sub { shift->to_string }, bool => sub { shift->to_string }, fallback => 1;
+use overload
+  '""'     => \&to_string,
+  bool     => sub { shift->to_string },
+  fallback => 1;
 use FFI::Platypus::Record;
 use FFI::Platypus::Buffer qw( scalar_to_buffer buffer_to_scalar );
 use FFI::Platypus::Memory qw( malloc memcpy free );

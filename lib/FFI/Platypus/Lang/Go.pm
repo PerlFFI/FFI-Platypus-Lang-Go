@@ -51,21 +51,15 @@ sub _config
   $config;
 }
 
-=head1 METHODS
-
-=head2 native_type_map
-
- my $hash = FFI::Platypus::Lang::Go->native_type_map;
-
-This returns a hash reference containing the native aliases for
-Go.  That is the keys are native Go types and the values are
-L<FFI::Platypus> types.
-
-=cut
-
 sub native_type_map
 {
   _config->{go_types};
+}
+
+sub load_custom_types
+{
+  my(undef, $ffi) = @_;
+  $ffi->load_custom_type('::GoString' => 'gostring');
 }
 
 1;
