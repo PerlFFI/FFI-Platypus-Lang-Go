@@ -9,6 +9,8 @@ use base qw( Exporter );
 our @EXPORT_OK = qw( Add Cosine Log );
 
 my $ffi = FFI::Platypus->new( api => 1, lang => 'Go' );
+# See FFI::Platypus::Bundle for the how and why
+# bundle works.
 $ffi->bundle;
 
 $ffi->attach( Add    => ['goint','goint'] => 'goint'     );
