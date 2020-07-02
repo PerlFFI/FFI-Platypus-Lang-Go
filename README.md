@@ -1,4 +1,4 @@
-# FFI::Platypus::Lang::Go [![Build Status](https://travis-ci.org/Perl5-FFI/FFI-Platypus-Lang-Go.svg)](http://travis-ci.org/Perl5-FFI/FFI-Platypus-Lang-Go)
+# FFI::Platypus::Lang::Go [![Build Status](https://travis-ci.org/PerlFFI/FFI-Platypus-Lang-Go.svg)](http://travis-ci.org/PerlFFI/FFI-Platypus-Lang-Go)
 
 Documentation and tools for using Platypus with Go
 
