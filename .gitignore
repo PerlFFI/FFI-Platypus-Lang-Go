@@ -1,2 +1,5 @@
 /FFI-Platypus-Lang-Go-*
 /.build
+/share
+*.so
+*.h

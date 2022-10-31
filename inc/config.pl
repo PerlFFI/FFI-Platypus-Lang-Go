@@ -7,6 +7,23 @@ use File::Temp qw( tempdir );
 use Path::Tiny qw( path );
 use FFI::Platypus;
 
+my($out, $err, $exit) = capture {
+  system 'go' ,'version';
+};
+
+unless($exit == 0)
+{
+  print "This dist requires Google Go to be installed";
+  exit;
+}
+
+unless(caller)
+{
+  *File::ShareDir::Dist::Install::install_dir = sub {
+    'share';
+  };
+}
+
 my $dist = 'FFI-Platypus-Lang-Go';
 
 {
