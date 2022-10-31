@@ -12,7 +12,7 @@ use Ref::Util qw( is_blessed_ref );
 =head1 SYNOPSIS
 
  use FFI::Platypus 1.00;
-
+ 
  my $ffi = FFI::Platypus->new( api => 1 );
  $ffi->load_custom_type('::GoString' => 'gostring');
  $ffi->function( some_go_function => [ 'gostring' ] )->call("hello there!");
