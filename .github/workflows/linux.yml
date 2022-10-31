@@ -37,7 +37,7 @@ jobs:
 
     env:
       CIP_TAG: ${{ matrix.cip_tag }}
-      CIP_ENV: TMPDIR=/home/cip/tmp
+      CIP_ENV: TMPDIR=/home/cip/tmp FFI_PLATYPUS_LANG_GO_TEST_EXAMPLES=1
 
     steps:
       - uses: actions/checkout@v2
