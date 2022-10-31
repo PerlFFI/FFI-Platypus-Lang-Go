@@ -7,6 +7,121 @@ Documentation and tools for using Platypus with Go
 Go code:
 
 ```
+package main
+
+import "C"
+
+//export add
+func add(x, y int) int {
+    return x + y
+}
+
+func main() {}
+```
+
+Perl code:
+
+```perl
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+use FFI::Platypus 2.00;
+use FFI::CheckLib qw( find_lib_or_die );
+use File::Basename qw( dirname );
+
+my $ffi = FFI::Platypus->new(
+  api  => 2,
+  lib  => './add.so',
+  lang => 'Go',
+);
+$ffi->attach( add => ['goint', 'goint'] => 'goint' );
+
+print add(1,2), "\n";  # prints 3
+```
+
+# DESCRIPTION
+
+This distribution is the Go language plugin for Platypus.
+It provides the definition for native Go types, like
+`goint` and `gostring`.  It also provides a [FFI::Build](https://metacpan.org/pod/FFI::Build)
+interface for building Perl extensions written in Go.
+
+For a full working example based on the synopsis above,
+including support files like `Makefile.PL` and tests,
+see the `examples/Awesome-FFI` directory that came with
+this distribution.
+
+# EXAMPLES
+
+The examples in this discussion are bundled with this
+distribution and can be found in the `examples` directory.
+
+## Passing and Returning Integers
+
+### Go
+
+```
+package main
+
+import "C"
+
+//export add
+func add(x, y int) int {
+    return x + y
+}
+
+func main() {}
+```
+
+### Perl
+
+```perl
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+use FFI::Platypus 2.00;
+use FFI::CheckLib qw( find_lib_or_die );
+use File::Basename qw( dirname );
+
+my $ffi = FFI::Platypus->new(
+  api  => 2,
+  lib  => './add.so',
+  lang => 'Go',
+);
+$ffi->attach( add => ['goint', 'goint'] => 'goint' );
+
+print add(1,2), "\n";  # prints 3
+```
+
+### Execute
+
+```
+$ go build -o add.so -buildmode=c-shared add.go
+$ perl add.pl
+3
+```
+
+### Discussion
+
+The Go code has to:
+
+- 1 Import the pseudo package `"C"`
+- 2 Mark any exported function with the command `//export`
+- 3 Include a `main` function, even if you do not use it.
+
+From the Perl side, the Go types have a `go` prefix, so `int`
+in Go is `goint` in Perl.
+
+Aside from that passing basic types like integers and floats
+is trivial with FFI.
+
+## Module
+
+### Go
+
+```
 /*
  * borrowed from
  * https://medium.com/learning-the-go-programming-language/calling-go-functions-from-other-languages-4c7d8bcc69bf
@@ -47,7 +162,9 @@ func Log(msg string) int {
 func main() {}
 ```
 
-Perl code:
+### Perl
+
+Module:
 
 ```perl
 package Awesome::FFI;
@@ -72,17 +189,44 @@ $ffi->attach( Log    => ['gostring'     ] => 'goint'     );
 1;
 ```
 
-# DESCRIPTION
+Test:
 
-This distribution is the Go language plugin for Platypus.
-It provides the definition for native Go types, like
-`goint` and `gostring`.  It also provides a [FFI::Build](https://metacpan.org/pod/FFI::Build)
-interface for building Perl extensions written in Go.
+```perl
+use Test2::V0 -no_srand => 1;
+use Awesome::FFI qw( Add Cosine Log );
+use Capture::Tiny qw( capture );
+use FFI::Go::String;
 
-For a full working example based on the synopsis above,
-including support files like `Makefile.PL` and tests,
-see the `examples/Awesome-FFI` directory that came with
-this distribution.
+is( Add(1,2), 3 );
+is( Cosine(0), 1.0 );
+
+is(
+  [capture { Log("Hello Perl!") }],
+  ["Hello Perl!\n", '', 1]
+);
+
+done_testing;
+```
+
+### Execute
+
+```
+$ prove -lvm t/awesome_ffi.t
+t/awesome_ffi.t ..
+ok 1
+ok 2
+ok 3
+1..3
+ok
+All tests successful.
+Files=1, Tests=3,  1 wallclock secs ( 0.01 usr  0.00 sys +  1.28 cusr  0.48 csys =  1.77 CPU)
+Result: PASS
+```
+
+### Discussion
+
+This is a full working example of a Perl distribution / module
+included in the `examples/Awesome-FFI` directory.
 
 # SEE ALSO
 
