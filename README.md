@@ -45,12 +45,8 @@ print add(1,2), "\n";  # prints 3
 This distribution is the Go language plugin for Platypus.
 It provides the definition for native Go types, like
 `goint` and `gostring`.  It also provides a [FFI::Build](https://metacpan.org/pod/FFI::Build)
-interface for building Perl extensions written in Go.
-
-For a full working example based on the synopsis above,
-including support files like `Makefile.PL` and tests,
-see the `examples/Awesome-FFI` directory that came with
-this distribution.
+interface for building Perl extensions written in Go (see
+[FFI::Build::File::GoMod](https://metacpan.org/pod/FFI::Build::File::GoMod) for details).
 
 # EXAMPLES
 
