@@ -23,12 +23,8 @@ Perl code:
 This distribution is the Go language plugin for Platypus.
 It provides the definition for native Go types, like
 C<goint> and C<gostring>.  It also provides a L<FFI::Build>
-interface for building Perl extensions written in Go.
-
-For a full working example based on the synopsis above,
-including support files like C<Makefile.PL> and tests,
-see the C<examples/Awesome-FFI> directory that came with
-this distribution.
+interface for building Perl extensions written in Go (see
+L<FFI::Build::File::GoMod> for details).
 
 =head1 EXAMPLES
 
