@@ -242,6 +242,8 @@ included in the `examples/Awesome-FFI` directory.
 
     [FFI::Build](https://metacpan.org/pod/FFI::Build) class for handling Go modules.
 
+- [Calling Go Functions from Other Languages using C Shared Libraries](https://github.com/vladimirvivien/go-cshared-examples)
+
 # AUTHOR
 
 Graham Ollis <plicease@cpan.org>
