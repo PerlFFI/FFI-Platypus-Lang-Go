@@ -1,4 +1,4 @@
-# FFI::Platypus::Lang::Go ![linux](https://github.com/PerlFFI/FFI-Platypus-Lang-Go/workflows/linux/badge.svg)
+# FFI::Platypus::Lang::Go ![static](https://github.com/PerlFFI/FFI-Platypus-Lang-Go/workflows/static/badge.svg) ![linux](https://github.com/PerlFFI/FFI-Platypus-Lang-Go/workflows/linux/badge.svg)
 
 Documentation and tools for using Platypus with Go
 
