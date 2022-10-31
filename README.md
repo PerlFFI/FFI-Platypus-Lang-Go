@@ -22,10 +22,6 @@ func main() {}
 Perl code:
 
 ```perl
-#!/usr/bin/env perl
-
-use strict;
-use warnings;
 use FFI::Platypus 2.00;
 use FFI::CheckLib qw( find_lib_or_die );
 use File::Basename qw( dirname );
@@ -73,10 +69,6 @@ func main() {}
 ### Perl
 
 ```perl
-#!/usr/bin/env perl
-
-use strict;
-use warnings;
 use FFI::Platypus 2.00;
 use FFI::CheckLib qw( find_lib_or_die );
 use File::Basename qw( dirname );
