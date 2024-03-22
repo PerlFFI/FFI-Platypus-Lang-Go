@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.03      2024-03-22 15:46:00 -0600
   - Updated prereqs to reflect that FFI::Platypus is required at configure
     time (gh#20, Graham TerMarsch++)
 
