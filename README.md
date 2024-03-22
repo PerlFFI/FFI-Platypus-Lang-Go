@@ -238,7 +238,11 @@ included in the `examples/Awesome-FFI` directory.
 
 # AUTHOR
 
-Graham Ollis <plicease@cpan.org>
+Author: Graham Ollis <plicease@cpan.org>
+
+Contributors:
+
+Graham TerMarsch (GTERMARS)
 
 # COPYRIGHT AND LICENSE
 
