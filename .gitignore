@@ -4,3 +4,5 @@
 *.so
 *.h
 *.swp
+*.old
+*.orig
