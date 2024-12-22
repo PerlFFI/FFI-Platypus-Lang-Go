@@ -17,7 +17,8 @@ jobs:
       fail-fast: false
       matrix:
         cip_tag:
-          - "5.39"
+          - "5.41"
+          - "5.40"
           - "5.38"
           - "5.36"
           - "5.34"
